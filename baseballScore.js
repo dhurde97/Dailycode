@@ -1,3 +1,8 @@
+// There's a baseball player who can score 3 or 5 or 10 points in a single move. 
+// Given a total score n, find and print all the distinct combinations to reach
+// the given score, also print the total number of possible combinations.
+
+
 function findTotalCombinations(n){
     let count=0;
     let num=n/3;
