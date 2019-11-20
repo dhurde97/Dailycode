@@ -1,3 +1,6 @@
+/*Given an array "arr", find the pair of elements whose sum is divisible by 5 and print those pairs.
+Also find the total number of such pair of elements whose sum is an even number.
+*/
 function findPairs(arr){
 let divisibleBy5=[];
 let evenSum=[];
