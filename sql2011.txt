@@ -1,0 +1,39 @@
+Given 2 tables: Employee and Department
+Employee table has following columns:  Emp_Id, Emp_Name, Salary, Dept_Id
+Department table:  Dept_Id, Dept_Name, Total_Num_Of_Emp
+
+Ques: Write a SQL Query to find the total number of employees in the department in 
+which employee number '1001' works. (Emp_Id = 1001)
+
+
+mysql> select * from Employee;
++--------+----------+--------+---------+
+| Emp_id | Emp_Name | salary | Dept_id |
++--------+----------+--------+---------+
+|      1 | john     | 23000  |      20 |
+|      2 | doe      | 33000  |      21 |
+|      3 | chia     | 43000  |      22 |
+|      4 | Andrew   | 53000  |      23 |
+|   1001 | Dario    | 63000  |      24 |
++--------+----------+--------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select * from Department;
++---------+-------------+------------------+
+| Dept_id | Dept_Name   | Total_Num_Of_Emp |
++---------+-------------+------------------+
+|      20 | Testing     |                5 |
+|      21 | planning    |                6 |
+|      21 | audit       |                5 |
+|      21 | development |                4 |
+|      24 | account     |                5 |
++---------+-------------+------------------+
+5 rows in set (0.00 sec)
+
+ select sum(Total_Num_Of_Emp) from (select Department.Total_Num_Of_Emp,Employee.Emp_id from Employee inner join Department on Employee.Dept_id=Department.Dept_id) as t where Emp_id=1001;
++-----------------------+
+| sum(Total_Num_Of_Emp) |
++-----------------------+
+|                     5 |
++-----------------------+
+1 row in set (0.00 sec)
