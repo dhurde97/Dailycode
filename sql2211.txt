@@ -29,9 +29,8 @@ select * from score;
 
 
 
-
-solution:  (1)	select sum(math_score) from (select stud_name,math_score,eng_score,gk_score from student 
-		inner join score on student.stud_id=score.stud_id) as table1;
+solution:   (1)
+mysql> select sum(math_score) from student inner join score on student.stud_id=score.stud_id;
 +-----------------+
 | sum(math_score) |
 +-----------------+
@@ -40,15 +39,15 @@ solution:  (1)	select sum(math_score) from (select stud_name,math_score,eng_scor
 1 row in set (0.00 sec)
 
 
-solution:  (2)	select stud_name,math_score+gk_score+eng_score as total_score from (select stud_name,
-		math_score,eng_score,gk_score from student inner join score on student.stud_id=score.stud_id) 
-		as table1;
-+-----------+-------------+
-| stud_name | total_score |
-+-----------+-------------+
-| jhon      |         235 |
-| peter     |         244 |
-| marius    |         231 |
-| adams     |         238 |
-+-----------+-------------+
+
+solution:  (2)
+ select stud_name,student.stud_id,math_score+gk_score+eng_score as total_marks from student inner join score on student.stud_id=score.stud_id;
++-----------+---------+-------------+
+| stud_name | stud_id | total_marks |
++-----------+---------+-------------+
+| jhon      |       1 |         235 |
+| peter     |       2 |         244 |
+| marius    |       3 |         231 |
+| adams     |       4 |         238 |
++-----------+---------+-------------+
 4 rows in set (0.00 sec)
