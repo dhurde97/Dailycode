@@ -8,7 +8,7 @@ arr.forEach(element=>{
 })
 console.log(playerScore);
 playerScore.forEach((number) => {
-    for (let i = 2; i < number/2; i++) {
+    for (let i = 2; i < number; i++) {
         if(number % i === 0) {
             return ;
         }
